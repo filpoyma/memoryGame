@@ -20,6 +20,7 @@ const Timer = ({ gameStatus }) => {
     1000,
   );
   React.useEffect(() => {
+    console.log('file-game status :', gameStatus);
     if (gameStatus === game.new || gameStatus === game.end) clearInterval(durationTimerIdRef.current);
     if (gameStatus === game.new) setDuration(0);
   }, [gameStatus]);

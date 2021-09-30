@@ -15,7 +15,8 @@ const GameBoard = ({ gameStatus, setGameStatus }) => {
   const timerIdFirstCard = React.useRef(0);
 
   React.useEffect(() => {
-    if (matchedPairs === board.length / 2) setGameStatus(game.end);
+    // if (matchedPairs === board.length / 2) setGameStatus(game.end);
+    if (matchedPairs === 1) setGameStatus(game.end);
   }, [matchedPairs]);
 
   React.useEffect(() => {
