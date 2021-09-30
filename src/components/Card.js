@@ -6,7 +6,6 @@ import Icon from './Icon';
 import { backCard } from '../consts/main';
 
 const Card = ({ card, handleCardClick }) => {
-  console.log('Card>>>:');
   return (
     <CardContainer
       onClick={() => {
@@ -33,4 +32,4 @@ Card.propTypes = {
   }),
 };
 
-export default React.memo(Card);
+export default Card;

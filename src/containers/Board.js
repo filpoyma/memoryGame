@@ -26,60 +26,56 @@ const GameBoard = ({ gameStatus, setGameStatus }) => {
     }
   }, [gameStatus]);
 
+  const handleCardClick = currentCard => {
+    setGameStatus(game.running);
 
-    const handleCardClick = React.useCallback((currentCard) => {
-      setGameStatus(game.running);
+    // переворачиваем карточку
+    setBoard(prev =>
+      prev.map(card => (card.id === currentCard.id ? { ...card, isFlipped: true, isClickable: false } : card)),
+    );
 
-      // переворачиваем карточку
-      setBoard(prev =>
-        prev.map(card => (card.id === currentCard.id ? { ...card, isFlipped: true, isClickable: false } : card)),
-      );
+    // переворачиваем первую карту
+    if (firstCard === null) {
+      setFirstCard({ ...currentCard });
 
-      // переворачиваем первую карту
-      if (firstCard === null) {
-        setFirstCard({ ...currentCard });
-
-        // первая карта будет открыта 5 сек
-        timerIdFirstCard.current = setTimeout(() => {
-          setBoard(prev =>
-            prev.map(card => (card.id === currentCard.id ? { ...card, isFlipped: false, isClickable: true } : card)),
-          );
-          setFirstCard(null);
-        }, delayFlipBackFirstCard);
-        return;
-      }
-      clearInterval(timerIdFirstCard.current);
-
-      // если карты совпали
-      if (firstCard.matchId === currentCard.id) {
-        setMatchedPairs(prev => prev + 1);
+      // первая карта будет открыта 5 сек
+      timerIdFirstCard.current = setTimeout(() => {
         setBoard(prev =>
-          prev.map(card =>
-            card.id === firstCard.id || card.id === currentCard.id ? { ...card, isClickable: false } : card,
-          ),
+          prev.map(card => (card.id === currentCard.id ? { ...card, isFlipped: false, isClickable: true } : card)),
         );
         setFirstCard(null);
-      } else {
-        // если карты не совпали - ждем 1 сек и закрываем
-        setTimeout(() => {
-          setBoard(prev =>
-            prev.map((card) =>
-              card.id === firstCard.id || card.id === currentCard.id
-                ? { ...card, isFlipped: false, isClickable: true }
-                : card,
-            ),
-          );
-        }, delayToFlipBackPairs);
-      }
+      }, delayFlipBackFirstCard);
+      return;
+    }
+    clearInterval(timerIdFirstCard.current);
 
+    // если карты совпали
+    if (firstCard.matchId === currentCard.id) {
+      setMatchedPairs(prev => prev + 1);
+      setBoard(prev =>
+        prev.map(card =>
+          card.id === firstCard.id || card.id === currentCard.id ? { ...card, isClickable: false } : card,
+        ),
+      );
       setFirstCard(null);
+    } else {
+      // если карты не совпали - ждем 1 сек и закрываем
+      setTimeout(() => {
+        setBoard(prev =>
+          prev.map(card =>
+            card.id === firstCard.id || card.id === currentCard.id
+              ? { ...card, isFlipped: false, isClickable: true }
+              : card,
+          ),
+        );
+      }, delayToFlipBackPairs);
+    }
 
-    }, []);
-
+    setFirstCard(null);
+  };
 
   return (
     <Board>
-      {console.log('Board RENDERED')}
       {board.map(card => (
         <Card key={card.id} card={card} handleCardClick={handleCardClick} />
       ))}
@@ -88,4 +84,3 @@ const GameBoard = ({ gameStatus, setGameStatus }) => {
 };
 
 export default GameBoard;
-
