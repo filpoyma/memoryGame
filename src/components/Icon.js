@@ -1,5 +1,5 @@
 import React from 'react';
-import Icons from '../img/animals.svg'; // Path to your icons.svg
+import Icons from '../img/animals.svg';
 
 const Icon = ({ name, color, size }) => (
   <svg className={`icon icon-${name}`} fill={color} width={size} height={size}>
