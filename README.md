@@ -1,4 +1,6 @@
-# Getting Started with Memory Game
+# Memory Game
+
+Сайт: https://memoryanymals.herokuapp.com/
 
 ## Available Scripts
 
