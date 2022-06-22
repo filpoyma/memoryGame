@@ -2,6 +2,8 @@
 
 Сайт: https://memoryanymals.herokuapp.com/
 
+ReactJS
+
 ## Available Scripts
 
 In the project directory, you can run:
