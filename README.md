@@ -1,6 +1,6 @@
 # Memory Game
 
-Сайт: https://memoryanymals.herokuapp.com/
+Сайт: memoryanimals.onrender.com
 
 ReactJS
 
