@@ -1,6 +1,6 @@
 # Memory Game
 
-Сайт: hhts://memoryanimals.onrender.com
+Сайт: [https://memoryanimals.onrender.com](https://memoryanimals.onrender.com)
 
 ReactJS
 
