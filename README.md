@@ -1,10 +1,10 @@
 # Memory Game
 
-Сайт: [https://memoryanimals.onrender.com](https://memoryanimals.onrender.com)
+### Технологии: ReactJS, ReactNative
 
+Сайт: [https://memoryanimals.onrender.com](https://memoryanimals.onrender.com)
 PlayStore: https://play.google.com/store/apps/details?id=com.memorygametrickortreat&pli=1
 
-ReactJS, ReactNative
 
 <img width="250" alt="Screenshot 2023-08-11 at 49 05" src="https://github.com/filpoyma/memoryGame/assets/34694422/aaab734e-8f12-4932-9753-8f46a2deaeee">
 
