@@ -1,18 +1,63 @@
 # Memory Game
 
-Сайт: https://memoryanymals.herokuapp.com/
+Классическая игра «Мемори» с животными: переворачивай карточки, запоминай расположение и находи все пары. Игра идёт на время — чем быстрее соберёшь все совпадения, тем лучше результат.
 
-ReactJS
+## Играть онлайн
 
-## Available Scripts
+**[https://memoryanimals.onrender.com/](https://memoryanimals.onrender.com/)**
 
-In the project directory, you can run:
+## Превью
 
-### `yarn install`
-### `yarn start`
+<p align="center">
+  <img src="public/logo512.png" alt="Memory Game" width="200" />
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p align="center">
+  <img src="public/logo192.png" alt="Memory Game icon" width="96" />
+</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Как играть
+
+1. Нажми на любую карточку, чтобы начать игру и запустить таймер.
+2. Первая открытая карточка остаётся видимой 5 секунд — успей запомнить её.
+3. Открой вторую карточку: если животные совпали, пара остаётся открытой.
+4. Если не совпали — обе карточки переворачиваются обратно через секунду.
+5. Собери все 18 пар, чтобы завершить игру.
+
+На поле 36 карточек с 18 видами животных: кролики, дельфины, слоны, медведи, тигры и другие.
+
+## Стек
+
+- [React](https://reactjs.org/) 17
+- [styled-components](https://styled-components.com/) 5
+- Create React App
+
+## Локальный запуск
+
+```bash
+yarn install
+yarn start
+```
+
+Приложение откроется на [http://localhost:3000](http://localhost:3000).
+
+### Другие команды
+
+| Команда       | Описание              |
+| ------------- | --------------------- |
+| `yarn build`  | Production-сборка     |
+| `yarn test`   | Запуск тестов         |
+| `yarn eject`  | Eject из CRA (необратимо) |
+
+## Структура проекта
+
+```
+src/
+├── components/   # UI-компоненты (Card, Timer, Button, Title)
+├── containers/   # Game и Board — логика игры
+├── consts/       # Константы и список карточек
+├── functs/       # Вспомогательные функции
+├── hooks/        # Хуки (таймер)
+├── img/          # SVG-спрайт с иконками животных
+└── styles/       # Стили styled-components
+```
